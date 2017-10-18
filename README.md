@@ -18,3 +18,7 @@ Toolkit für die Verwendung von Oracle DB in einer .NET-Umgebung
 - schwer zu erlernen
 
 ## Managed vs. Unmanaged
+- Managed:
+  * einfacher in der Verwendung
+- Unmanaged
+  * meistens schneller
