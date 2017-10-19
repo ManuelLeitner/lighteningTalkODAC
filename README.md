@@ -14,14 +14,18 @@ Toolkit für die Verwendung von Oracle DB in einer .NET-Umgebung
 
 \*kompatibel bis Oracle 9i
 
-## Vorteile
+## Vor- und Nachteile aus der Verwendung in der Praxis
+
+### Vorteile
 - einfache Verwendung
 - einfache Installation
 - DB-Versionsunabhängig
 
-## Nachteile
+### Nachteile/Probleme
 - keine/veraltete Dokumentation
 - schwer zu erlernen
+- ID-Generierung
+- Deadlocks
 
 ## Managed vs. Unmanaged
 - `Managed:`
