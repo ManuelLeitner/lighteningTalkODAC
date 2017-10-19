@@ -1,0 +1,1 @@
+create sequence IDS increment by 1 start with 100000 minvalue 1;

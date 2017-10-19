@@ -1,0 +1,1173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EF.Store" Alias="Self" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+        <EntityContainer Name="EFStoreContainer">
+            <EntitySet Name="Users" EntityType="EF.Store.Users" store:Type="Tables" Schema="OPTVIEWER" />
+            <EntitySet Name="Customers" EntityType="EF.Store.Customers" store:Type="Tables" Schema="OPTVIEWER" />
+            <EntitySet Name="Opts" EntityType="EF.Store.Opts" store:Type="Tables" Schema="OPTVIEWER" />
+            <EntitySet Name="Machines" EntityType="EF.Store.Machines" store:Type="Tables" Schema="OPTVIEWER" />
+            <EntitySet Name="Orders" EntityType="EF.Store.Orders" store:Type="Tables" Schema="OPTVIEWER" />
+            <EntitySet Name="MachineProperties" EntityType="EF.Store.MachineProperties" store:Type="Tables" Schema="OPTVIEWER" />
+            <EntitySet Name="Properties" EntityType="EF.Store.Properties" store:Type="Tables" Schema="OPTVIEWER" />
+            <EntitySet Name="Rules" EntityType="EF.Store.Rules" store:Type="Tables" Schema="OPTVIEWER" />
+            <EntitySet Name="Tasks" EntityType="EF.Store.Tasks" store:Type="Tables" Schema="OPTVIEWER" />
+            <EntitySet Name="Operations" EntityType="EF.Store.Operations" store:Type="Tables" Schema="OPTVIEWER" />
+            <EntitySet Name="Times" EntityType="EF.Store.Times" store:Type="Tables" Schema="OPTVIEWER" />
+            <EntitySet Name="MachineOrder" EntityType="EF.Store.MachineOrder" store:Type="Tables" Schema="OPTVIEWER" />
+            <EntitySet Name="Operations_Condition" EntityType="EF.Store.Operations_Condition" store:Type="Tables" Schema="OPTVIEWER" />
+            <EntitySet Name="Operations_UnaryOperation" EntityType="EF.Store.Operations_UnaryOperation" store:Type="Tables" Schema="OPTVIEWER" />
+            <EntitySet Name="Operations_BinaryOperation" EntityType="EF.Store.Operations_BinaryOperation" store:Type="Tables" Schema="OPTVIEWER" />
+            <EntitySet Name="RuleTask" EntityType="EF.Store.RuleTask" store:Type="Tables" Schema="OPTVIEWER" />
+            <EntitySet Name="OptOrder" EntityType="EF.Store.OptOrder" store:Type="Tables" Schema="OPTVIEWER" />
+            <EntitySet Name="OrderTask" EntityType="EF.Store.OrderTask" store:Type="Tables" Schema="OPTVIEWER" />
+            <AssociationSet Name="CustomerOrder" Association="EF.Store.CustomerOrder">
+                <End Role="Customer" EntitySet="Customers" />
+                <End Role="Order" EntitySet="Orders" />
+            </AssociationSet>
+            <AssociationSet Name="OrderPropertyProperty" Association="EF.Store.OrderPropertyProperty">
+                <End Role="OrderProperty" EntitySet="MachineProperties" />
+                <End Role="Property" EntitySet="Properties" />
+            </AssociationSet>
+            <AssociationSet Name="FK_RuleTask_Rule" Association="EF.Store.FK_RuleTask_Rule">
+                <End Role="Rule" EntitySet="Rules" />
+                <End Role="RuleTask" EntitySet="RuleTask" />
+            </AssociationSet>
+            <AssociationSet Name="FK_RuleTask_Task" Association="EF.Store.FK_RuleTask_Task">
+                <End Role="Task" EntitySet="Tasks" />
+                <End Role="RuleTask" EntitySet="RuleTask" />
+            </AssociationSet>
+            <AssociationSet Name="PropertyCondition" Association="EF.Store.PropertyCondition">
+                <End Role="Property" EntitySet="Properties" />
+                <End Role="Condition" EntitySet="Operations_Condition" />
+            </AssociationSet>
+            <AssociationSet Name="FK_OptOrder_Opt" Association="EF.Store.FK_OptOrder_Opt">
+                <End Role="Opt" EntitySet="Opts" />
+                <End Role="OptOrder" EntitySet="OptOrder" />
+            </AssociationSet>
+            <AssociationSet Name="FK_OptOrder_Order" Association="EF.Store.FK_OptOrder_Order">
+                <End Role="Order" EntitySet="Orders" />
+                <End Role="OptOrder" EntitySet="OptOrder" />
+            </AssociationSet>
+            <AssociationSet Name="UnaryOperationOperation" Association="EF.Store.OpUnOp">
+                <End Role="UnaryOperation" EntitySet="Operations_UnaryOperation" />
+                <End Role="Operation" EntitySet="Operations" />
+            </AssociationSet>
+            <AssociationSet Name="OrderTime" Association="EF.Store.OrderTime">
+                <End Role="Order" EntitySet="Orders" />
+                <End Role="Time" EntitySet="Times" />
+            </AssociationSet>
+            <AssociationSet Name="UserTime" Association="EF.Store.UserTime">
+                <End Role="User" EntitySet="Users" />
+                <End Role="Time" EntitySet="Times" />
+            </AssociationSet>
+            <AssociationSet Name="OrderMachineOrder" Association="EF.Store.OrderMachineOrder">
+                <End Role="Order" EntitySet="Orders" />
+                <End Role="MachineOrder" EntitySet="MachineOrder" />
+            </AssociationSet>
+            <AssociationSet Name="MachineOrderMachine" Association="EF.Store.MachineOrderMachine">
+                <End Role="MachineOrder" EntitySet="MachineOrder" />
+                <End Role="Machine" EntitySet="Machines" />
+            </AssociationSet>
+            <AssociationSet Name="MachineOrderProperty" Association="EF.Store.MachineOrderProperty">
+                <End Role="MachineProperty" EntitySet="MachineProperties" />
+                <End Role="MachineOrder" EntitySet="MachineOrder" />
+            </AssociationSet>
+            <AssociationSet Name="BinaryOperationOperation2" Association="EF.Store.BinOp1">
+                <End Role="BinaryOperation" EntitySet="Operations_BinaryOperation" />
+                <End Role="Operation" EntitySet="Operations" />
+            </AssociationSet>
+            <AssociationSet Name="BinaryOperationOperation1" Association="EF.Store.BinOp2">
+                <End Role="BinaryOperation" EntitySet="Operations_BinaryOperation" />
+                <End Role="Operation" EntitySet="Operations" />
+            </AssociationSet>
+            <AssociationSet Name="OperationRule" Association="EF.Store.OperationRule">
+                <End Role="Operation" EntitySet="Operations" />
+                <End Role="Rule" EntitySet="Rules" />
+            </AssociationSet>
+            <AssociationSet Name="UserRule" Association="EF.Store.UserRule">
+                <End Role="User" EntitySet="Users" />
+                <End Role="Rule" EntitySet="Rules" />
+            </AssociationSet>
+            <AssociationSet Name="FK_OrderTask_Orders" Association="EF.Store.FK_OrderTask_Orders">
+                <End Role="Orders" EntitySet="MachineOrder" />
+                <End Role="OrderTask" EntitySet="OrderTask" />
+            </AssociationSet>
+            <AssociationSet Name="FK_OrderTask_Tasks" Association="EF.Store.FK_OrderTask_Tasks">
+                <End Role="Tasks" EntitySet="Tasks" />
+                <End Role="OrderTask" EntitySet="OrderTask" />
+            </AssociationSet>
+            <AssociationSet Name="FK_Condition_inherits_Operation" Association="EF.Store.FK_Condition_inherits_Operation">
+                <End Role="Operation" EntitySet="Operations" />
+                <End Role="Condition" EntitySet="Operations_Condition" />
+            </AssociationSet>
+            <AssociationSet Name="FK_UnaryOperation_inherits_Operation" Association="EF.Store.FK_UnaryOperation_inherits_Operation">
+                <End Role="Operation" EntitySet="Operations" />
+                <End Role="UnaryOperation" EntitySet="Operations_UnaryOperation" />
+            </AssociationSet>
+            <AssociationSet Name="FK_BinaryOperation_inherits_Operation" Association="EF.Store.FK_BinaryOperation_inherits_Operation">
+                <End Role="Operation" EntitySet="Operations" />
+                <End Role="BinaryOperation" EntitySet="Operations_BinaryOperation" />
+            </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Users">
+            <Key>
+                <PropertyRef Name="ID" />
+            </Key>
+            <Property Name="ID" Type="number" Nullable="false" Precision="19" />
+            <Property Name="FirstName" Type="varchar2" Nullable="true" MaxLength="30" />
+            <Property Name="SecondName" Type="varchar2" Nullable="true" MaxLength="30" />
+            <Property Name="UserName" Type="varchar2" Nullable="true" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Customers">
+            <Key>
+                <PropertyRef Name="ID" />
+            </Key>
+            <Property Name="ID" Type="number" Nullable="false" Precision="19" />
+            <Property Name="Name" Type="varchar2" Nullable="true" MaxLength="100" />
+            <Property Name="AdditionalInfos" Type="varchar2" Nullable="true" MaxLength="1000" />
+            <Property Name="CustomerNr" Type="number" Nullable="false" Precision="19" />
+        </EntityType>
+        <EntityType Name="Opts">
+            <Key>
+                <PropertyRef Name="ID" />
+            </Key>
+            <Property Name="ID" Type="number" Nullable="false" Precision="19" />
+            <Property Name="Blockname" Type="char" Nullable="true" MaxLength="500" />
+            <Property Name="SwitchCondition" Type="char" Nullable="true" MaxLength="500" />
+            <Property Name="Number" Type="number" Nullable="false" Precision="19" />
+        </EntityType>
+        <EntityType Name="Machines">
+            <Key>
+                <PropertyRef Name="ID" />
+            </Key>
+            <Property Name="ID" Type="number" Nullable="false" Precision="19" />
+            <Property Name="FabricationNumber" Type="number" Nullable="false" Precision="10" />
+            <Property Name="SD" Type="varchar2" Nullable="false" MaxLength="15" />
+            <Property Name="Version" Type="varchar2" Nullable="true" MaxLength="30" />
+            <Property Name="Type" Type="varchar2" Nullable="true" MaxLength="30" />
+            <Property Name="Reference" Type="varchar2" Nullable="true" MaxLength="30" />
+            <Property Name="Plant" Type="number" Nullable="true" Precision="19" />
+            <Property Name="Year" Type="date" Nullable="true" />
+            <Property Name="KVZ" Type="number" Nullable="true" Precision="19" />
+        </EntityType>
+        <EntityType Name="Orders">
+            <Key>
+                <PropertyRef Name="ID" />
+            </Key>
+            <Property Name="ID" Type="number" Nullable="false" Precision="19" />
+            <Property Name="Deadline" Type="timestamp" Nullable="true" Precision="6" />
+            <Property Name="Note" Type="varchar2" Nullable="true" MaxLength="1000" />
+            <Property Name="Name" Type="varchar2" Nullable="false" MaxLength="50" />
+            <Property Name="Text" Type="clob" Nullable="true" />
+            <Property Name="Number" Type="number" Nullable="false" Precision="19" />
+            <Property Name="Done" Type="number" Nullable="false" Precision="1" />
+            <Property Name="Customer_ID" Type="number" Precision="19" Nullable="true" />
+        </EntityType>
+        <EntityType Name="MachineProperties">
+            <Key>
+                <PropertyRef Name="ID" />
+            </Key>
+            <Property Name="ID" Type="number" Nullable="false" Precision="19" />
+            <Property Name="Value" Type="varchar2" Nullable="false" MaxLength="30" />
+            <Property Name="Property_ID" Type="number" Precision="19" Nullable="false" />
+            <Property Name="MachineOrder_ID" Type="number" Precision="19" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Properties">
+            <Key>
+                <PropertyRef Name="ID" />
+            </Key>
+            <Property Name="ID" Type="number" Nullable="false" Precision="19" />
+            <Property Name="Text" Type="nvarchar2" Nullable="false" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Rules">
+            <Key>
+                <PropertyRef Name="ID" />
+            </Key>
+            <Property Name="ID" Type="number" Nullable="false" Precision="19" />
+            <Property Name="Name" Type="varchar2" Nullable="false" MaxLength="100" />
+            <Property Name="Priority" Type="number" Nullable="false" Precision="10" />
+            <Property Name="X" Type="number" Nullable="false" Precision="5" />
+            <Property Name="Y" Type="number" Nullable="false" Precision="5" />
+            <Property Name="UserID" Type="number" Nullable="true" Precision="19" />
+            <Property Name="Operation_ID" Type="number" Precision="19" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Tasks">
+            <Key>
+                <PropertyRef Name="ID" />
+            </Key>
+            <Property Name="ID" Type="number" Nullable="false" Precision="19" />
+            <Property Name="Text" Type="varchar2" Nullable="false" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="Operations">
+            <Key>
+                <PropertyRef Name="ID" />
+            </Key>
+            <Property Name="ID" Type="number" Nullable="false" Precision="19" />
+            <Property Name="Operator" Type="nvarchar2" Nullable="false" MaxLength="5" />
+            <Property Name="X" Type="number" Nullable="false" Precision="5" />
+            <Property Name="Y" Type="number" Nullable="false" Precision="5" />
+            <Property Name="Type" Type="nvarchar2" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Times">
+            <Key>
+                <PropertyRef Name="ID" />
+            </Key>
+            <Property Name="ID" Type="number" Nullable="false" Precision="19" />
+            <Property Name="StartTime" Type="date" Nullable="false" />
+            <Property Name="EndTime" Type="date" Nullable="false" />
+            <Property Name="Hours" Type="number" Nullable="false" Precision="10" />
+            <Property Name="Order_ID" Type="number" Precision="19" Nullable="false" />
+            <Property Name="User_ID" Type="number" Precision="19" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MachineOrder">
+            <Key>
+                <PropertyRef Name="ID" />
+            </Key>
+            <Property Name="ID" Type="number" Nullable="false" Precision="19" />
+            <Property Name="Checked" Type="number" Nullable="false" Precision="1" />
+            <Property Name="Order_ID" Type="number" Precision="19" Nullable="true" />
+            <Property Name="Machine_ID" Type="number" Precision="19" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Operations_Condition">
+            <Key>
+                <PropertyRef Name="ID" />
+            </Key>
+            <Property Name="Value" Type="varchar2" Nullable="false" MaxLength="30" />
+            <Property Name="ID" Type="number" Nullable="false" Precision="19" />
+            <Property Name="Property_ID" Type="number" Precision="19" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Operations_UnaryOperation">
+            <Key>
+                <PropertyRef Name="ID" />
+            </Key>
+            <Property Name="ID" Type="number" Nullable="false" Precision="19" />
+            <Property Name="Operation1_ID" Type="number" Precision="19" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Operations_BinaryOperation">
+            <Key>
+                <PropertyRef Name="ID" />
+            </Key>
+            <Property Name="ID" Type="number" Nullable="false" Precision="19" />
+            <Property Name="Operation1_ID" Type="number" Precision="19" Nullable="true" />
+            <Property Name="Operation2_ID" Type="number" Precision="19" Nullable="true" />
+        </EntityType>
+        <EntityType Name="RuleTask">
+            <Key>
+                <PropertyRef Name="Rules_ID" />
+                <PropertyRef Name="Tasks_ID" />
+            </Key>
+            <Property Name="Rules_ID" Type="number" Nullable="false" Precision="19" />
+            <Property Name="Tasks_ID" Type="number" Nullable="false" Precision="19" />
+        </EntityType>
+        <EntityType Name="OptOrder">
+            <Key>
+                <PropertyRef Name="Opts_ID" />
+                <PropertyRef Name="Order_ID" />
+            </Key>
+            <Property Name="Opts_ID" Type="number" Nullable="false" Precision="19" />
+            <Property Name="Order_ID" Type="number" Nullable="false" Precision="19" />
+        </EntityType>
+        <EntityType Name="OrderTask">
+            <Key>
+                <PropertyRef Name="MachineOrders_ID" />
+                <PropertyRef Name="Tasks_ID" />
+            </Key>
+            <Property Name="MachineOrders_ID" Type="number" Nullable="false" Precision="19" />
+            <Property Name="Tasks_ID" Type="number" Nullable="false" Precision="19" />
+        </EntityType>
+    <Association Name="CustomerOrder">
+        <End Role="Customer" Type="EF.Store.Customers" Multiplicity="0..1">
+        </End>
+        <End Role="Order" Type="EF.Store.Orders" Multiplicity="*">
+        </End>
+        <ReferentialConstraint>
+            <Principal Role="Customer">
+                <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Order">
+                <PropertyRef Name="Customer_ID" />
+            </Dependent>
+        </ReferentialConstraint>
+    </Association>
+    <Association Name="OrderPropertyProperty">
+        <End Role="OrderProperty" Type="EF.Store.MachineProperties" Multiplicity="*">
+        </End>
+        <End Role="Property" Type="EF.Store.Properties" Multiplicity="1">
+        </End>
+        <ReferentialConstraint>
+            <Principal Role="Property">
+                <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderProperty">
+                <PropertyRef Name="Property_ID" />
+            </Dependent>
+        </ReferentialConstraint>
+    </Association>
+    <Association Name="PropertyCondition">
+        <End Role="Property" Type="EF.Store.Properties" Multiplicity="1">
+        </End>
+        <End Role="Condition" Type="EF.Store.Operations_Condition" Multiplicity="*">
+        </End>
+        <ReferentialConstraint>
+            <Principal Role="Property">
+                <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Condition">
+                <PropertyRef Name="Property_ID" />
+            </Dependent>
+        </ReferentialConstraint>
+    </Association>
+    <Association Name="OpUnOp">
+        <End Role="UnaryOperation" Type="EF.Store.Operations_UnaryOperation" Multiplicity="*">
+        </End>
+        <End Role="Operation" Type="EF.Store.Operations" Multiplicity="0..1">
+        </End>
+        <ReferentialConstraint>
+            <Principal Role="Operation">
+                <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UnaryOperation">
+                <PropertyRef Name="Operation1_ID" />
+            </Dependent>
+        </ReferentialConstraint>
+    </Association>
+    <Association Name="OrderTime">
+        <End Role="Order" Type="EF.Store.Orders" Multiplicity="1">
+        </End>
+        <End Role="Time" Type="EF.Store.Times" Multiplicity="*">
+        </End>
+        <ReferentialConstraint>
+            <Principal Role="Order">
+                <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Time">
+                <PropertyRef Name="Order_ID" />
+            </Dependent>
+        </ReferentialConstraint>
+    </Association>
+    <Association Name="UserTime">
+        <End Role="User" Type="EF.Store.Users" Multiplicity="1">
+        </End>
+        <End Role="Time" Type="EF.Store.Times" Multiplicity="*">
+        </End>
+        <ReferentialConstraint>
+            <Principal Role="User">
+                <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Time">
+                <PropertyRef Name="User_ID" />
+            </Dependent>
+        </ReferentialConstraint>
+    </Association>
+    <Association Name="OrderMachineOrder">
+        <End Role="Order" Type="EF.Store.Orders" Multiplicity="0..1">
+        </End>
+        <End Role="MachineOrder" Type="EF.Store.MachineOrder" Multiplicity="*">
+        </End>
+        <ReferentialConstraint>
+            <Principal Role="Order">
+                <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MachineOrder">
+                <PropertyRef Name="Order_ID" />
+            </Dependent>
+        </ReferentialConstraint>
+    </Association>
+    <Association Name="MachineOrderMachine">
+        <End Role="MachineOrder" Type="EF.Store.MachineOrder" Multiplicity="*">
+        </End>
+        <End Role="Machine" Type="EF.Store.Machines" Multiplicity="0..1">
+        </End>
+        <ReferentialConstraint>
+            <Principal Role="Machine">
+                <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MachineOrder">
+                <PropertyRef Name="Machine_ID" />
+            </Dependent>
+        </ReferentialConstraint>
+    </Association>
+    <Association Name="MachineOrderProperty">
+        <End Role="MachineProperty" Type="EF.Store.MachineProperties" Multiplicity="*">
+        </End>
+        <End Role="MachineOrder" Type="EF.Store.MachineOrder" Multiplicity="0..1">
+        </End>
+        <ReferentialConstraint>
+            <Principal Role="MachineOrder">
+                <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MachineProperty">
+                <PropertyRef Name="MachineOrder_ID" />
+            </Dependent>
+        </ReferentialConstraint>
+    </Association>
+    <Association Name="BinOp1">
+        <End Role="BinaryOperation" Type="EF.Store.Operations_BinaryOperation" Multiplicity="*">
+        </End>
+        <End Role="Operation" Type="EF.Store.Operations" Multiplicity="0..1">
+        </End>
+        <ReferentialConstraint>
+            <Principal Role="Operation">
+                <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BinaryOperation">
+                <PropertyRef Name="Operation1_ID" />
+            </Dependent>
+        </ReferentialConstraint>
+    </Association>
+    <Association Name="BinOp2">
+        <End Role="BinaryOperation" Type="EF.Store.Operations_BinaryOperation" Multiplicity="*">
+        </End>
+        <End Role="Operation" Type="EF.Store.Operations" Multiplicity="0..1">
+        </End>
+        <ReferentialConstraint>
+            <Principal Role="Operation">
+                <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BinaryOperation">
+                <PropertyRef Name="Operation2_ID" />
+            </Dependent>
+        </ReferentialConstraint>
+    </Association>
+    <Association Name="OperationRule">
+        <End Role="Operation" Type="EF.Store.Operations" Multiplicity="0..1">
+        </End>
+        <End Role="Rule" Type="EF.Store.Rules" Multiplicity="*">
+        </End>
+        <ReferentialConstraint>
+            <Principal Role="Operation">
+                <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Rule">
+                <PropertyRef Name="Operation_ID" />
+            </Dependent>
+        </ReferentialConstraint>
+    </Association>
+    <Association Name="UserRule">
+        <End Role="User" Type="EF.Store.Users" Multiplicity="0..1">
+        </End>
+        <End Role="Rule" Type="EF.Store.Rules" Multiplicity="*">
+        </End>
+        <ReferentialConstraint>
+            <Principal Role="User">
+                <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Rule">
+                <PropertyRef Name="UserID" />
+            </Dependent>
+        </ReferentialConstraint>
+    </Association>
+    <Association Name="FK_RuleTask_Rule">
+        <End Role="Rule" Type="EF.Store.Rules" Multiplicity="1" />
+        <End Role="RuleTask" Type="EF.Store.RuleTask" Multiplicity="*" />
+        <ReferentialConstraint>
+            <Principal Role="Rule">
+                <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RuleTask">
+                <PropertyRef Name="Rules_ID" />
+            </Dependent>
+        </ReferentialConstraint>
+    </Association>
+    <Association Name="FK_RuleTask_Task">
+        <End Role="RuleTask" Type="EF.Store.RuleTask" Multiplicity="*" />
+        <End Role="Task" Type="EF.Store.Tasks" Multiplicity="1" />
+        <ReferentialConstraint>
+            <Principal Role="Task">
+                <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RuleTask">
+                <PropertyRef Name="Tasks_ID" />
+            </Dependent>
+        </ReferentialConstraint>
+    </Association>
+    <Association Name="FK_OptOrder_Opt">
+        <End Role="Opt" Type="EF.Store.Opts" Multiplicity="1" />
+        <End Role="OptOrder" Type="EF.Store.OptOrder" Multiplicity="*" />
+        <ReferentialConstraint>
+            <Principal Role="Opt">
+                <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OptOrder">
+                <PropertyRef Name="Opts_ID" />
+            </Dependent>
+        </ReferentialConstraint>
+    </Association>
+    <Association Name="FK_OptOrder_Order">
+        <End Role="OptOrder" Type="EF.Store.OptOrder" Multiplicity="*" />
+        <End Role="Order" Type="EF.Store.Orders" Multiplicity="1" />
+        <ReferentialConstraint>
+            <Principal Role="Order">
+                <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OptOrder">
+                <PropertyRef Name="Order_ID" />
+            </Dependent>
+        </ReferentialConstraint>
+    </Association>
+    <Association Name="FK_OrderTask_Orders">
+        <End Role="Orders" Type="EF.Store.MachineOrder" Multiplicity="1" />
+        <End Role="OrderTask" Type="EF.Store.OrderTask" Multiplicity="*" />
+        <ReferentialConstraint>
+            <Principal Role="Orders">
+                <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderTask">
+                <PropertyRef Name="MachineOrders_ID" />
+            </Dependent>
+        </ReferentialConstraint>
+    </Association>
+    <Association Name="FK_OrderTask_Tasks">
+        <End Role="OrderTask" Type="EF.Store.OrderTask" Multiplicity="*" />
+        <End Role="Tasks" Type="EF.Store.Tasks" Multiplicity="1" />
+        <ReferentialConstraint>
+            <Principal Role="Tasks">
+                <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="OrderTask">
+                <PropertyRef Name="Tasks_ID" />
+            </Dependent>
+        </ReferentialConstraint>
+    </Association>
+        <Association Name="FK_Condition_inherits_Operation">
+            <End Role="Operation" Type="EF.Store.Operations" Multiplicity="1" />
+            <End Role="Condition" Type="EF.Store.Operations_Condition" Multiplicity="0..1" />
+            <ReferentialConstraint>
+                <Principal Role="Operation">
+                    <PropertyRef Name="ID" />
+                </Principal>
+                <Dependent Role="Condition">
+                    <PropertyRef Name="ID" />
+                </Dependent>
+            </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UnaryOperation_inherits_Operation">
+            <End Role="Operation" Type="EF.Store.Operations" Multiplicity="1" />
+            <End Role="UnaryOperation" Type="EF.Store.Operations_UnaryOperation" Multiplicity="0..1" />
+            <ReferentialConstraint>
+                <Principal Role="Operation">
+                    <PropertyRef Name="ID" />
+                </Principal>
+                <Dependent Role="UnaryOperation">
+                    <PropertyRef Name="ID" />
+                </Dependent>
+            </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BinaryOperation_inherits_Operation">
+            <End Role="Operation" Type="EF.Store.Operations" Multiplicity="1" />
+            <End Role="BinaryOperation" Type="EF.Store.Operations_BinaryOperation" Multiplicity="0..1" />
+            <ReferentialConstraint>
+                <Principal Role="Operation">
+                    <PropertyRef Name="ID" />
+                </Principal>
+                <Dependent Role="BinaryOperation">
+                    <PropertyRef Name="ID" />
+                </Dependent>
+            </ReferentialConstraint>
+        </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="EF" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="OracleData" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Users" EntityType="EF.User" />
+          <EntitySet Name="Customers" EntityType="EF.Customer" />
+          <EntitySet Name="Opts" EntityType="EF.Opt" />
+          <EntitySet Name="Machines" EntityType="EF.Machine" />
+          <EntitySet Name="Orders" EntityType="EF.Order" />
+          <AssociationSet Name="CustomerOrder" Association="EF.CustomerOrder">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <EntitySet Name="MachineProperties" EntityType="EF.MachineProperty" />
+          <EntitySet Name="Properties" EntityType="EF.Property" />
+          <AssociationSet Name="OrderPropertyProperty" Association="EF.OrderPropertyProperty">
+            <End Role="OrderProperty" EntitySet="MachineProperties" />
+            <End Role="Property" EntitySet="Properties" />
+          </AssociationSet>
+          <EntitySet Name="Rules" EntityType="EF.Rule" />
+          <EntitySet Name="Tasks" EntityType="EF.Task" />
+          <EntitySet Name="Operations" EntityType="EF.Operation" />
+          <AssociationSet Name="RuleTask" Association="EF.RuleTask">
+            <End Role="Rule" EntitySet="Rules" />
+            <End Role="Task" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="PropertyCondition" Association="EF.PropertyCondition">
+            <End Role="Property" EntitySet="Properties" />
+            <End Role="Condition" EntitySet="Operations" />
+          </AssociationSet>
+          <AssociationSet Name="OptOrder" Association="EF.OptOrder">
+            <End Role="Opt" EntitySet="Opts" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="UnaryOperationOperation" Association="EF.OpUnOp">
+            <End Role="UnaryOperation" EntitySet="Operations" />
+            <End Role="Operation" EntitySet="Operations" />
+          </AssociationSet>
+          <EntitySet Name="Times" EntityType="EF.Time" />
+          <AssociationSet Name="OrderTime" Association="EF.OrderTime">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="Time" EntitySet="Times" />
+          </AssociationSet>
+          <AssociationSet Name="UserTime" Association="EF.UserTime">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Time" EntitySet="Times" />
+          </AssociationSet>
+          <EntitySet Name="MachineOrder" EntityType="EF.MachineOrder" />
+          <AssociationSet Name="OrderMachineOrder" Association="EF.OrderMachineOrder">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="MachineOrder" EntitySet="MachineOrder" />
+          </AssociationSet>
+          <AssociationSet Name="MachineOrderMachine" Association="EF.MachineOrderMachine">
+            <End Role="MachineOrder" EntitySet="MachineOrder" />
+            <End Role="Machine" EntitySet="Machines" />
+          </AssociationSet>
+          <AssociationSet Name="MachineOrderProperty" Association="EF.MachineOrderProperty">
+            <End Role="MachineProperty" EntitySet="MachineProperties" />
+            <End Role="MachineOrder" EntitySet="MachineOrder" />
+          </AssociationSet>
+          <AssociationSet Name="BinaryOperationOperation2" Association="EF.BinOp1">
+            <End Role="BinaryOperation" EntitySet="Operations" />
+            <End Role="Operation" EntitySet="Operations" />
+          </AssociationSet>
+          <AssociationSet Name="BinaryOperationOperation1" Association="EF.BinOp2">
+            <End Role="BinaryOperation" EntitySet="Operations" />
+            <End Role="Operation" EntitySet="Operations" />
+          </AssociationSet>
+          <AssociationSet Name="OperationRule" Association="EF.OperationRule">
+            <End Role="Operation" EntitySet="Operations" />
+            <End Role="Rule" EntitySet="Rules" />
+          </AssociationSet>
+          <AssociationSet Name="UserRule" Association="EF.UserRule">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Rule" EntitySet="Rules" />
+          </AssociationSet>
+          <AssociationSet Name="OrderTask" Association="EF.OrderTask">
+            <End Role="Orders" EntitySet="MachineOrder" />
+            <End Role="Tasks" EntitySet="Tasks" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SecondName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Time" Relationship="EF.UserTime" FromRole="User" ToRole="Time" />
+          <NavigationProperty Name="Rules" Relationship="EF.UserRule" FromRole="User" ToRole="Rule" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AdditionalInfos" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Orders" Relationship="EF.CustomerOrder" FromRole="Customer" ToRole="Order" />
+          <Property Name="CustomerNr" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Opt">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Blockname" Type="String" MaxLength="500" FixedLength="true" Unicode="false" />
+          <Property Name="SwitchCondition" Type="String" MaxLength="500" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Order" Relationship="EF.OptOrder" FromRole="Opt" ToRole="Order" />
+          <Property Name="Number" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Machine">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FabricationNumber" Type="Int32" Nullable="false" />
+          <Property Name="SD" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Version" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Reference" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Plant" Type="Int64" />
+          <Property Name="Year" Type="DateTime" />
+          <Property Name="KVZ" Type="Int64" />
+          <NavigationProperty Name="MachineOrder" Relationship="EF.MachineOrderMachine" FromRole="Machine" ToRole="MachineOrder" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Deadline" Type="DateTime" Precision="6" />
+          <Property Name="Note" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Customer" Relationship="EF.CustomerOrder" FromRole="Order" ToRole="Customer" />
+          <NavigationProperty Name="Opts" Relationship="EF.OptOrder" FromRole="Order" ToRole="Opt" />
+          <NavigationProperty Name="Time" Relationship="EF.OrderTime" FromRole="Order" ToRole="Time" />
+          <NavigationProperty Name="MachineOrders" Relationship="EF.OrderMachineOrder" FromRole="Order" ToRole="MachineOrder" />
+          <Property Name="Number" Type="Int64" Nullable="false" />
+          <Property Name="Done" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="CustomerOrder">
+          <End Type="EF.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="EF.Order" Role="Order" Multiplicity="*" />
+        </Association>
+        <EntityType Name="MachineProperty">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Property" Relationship="EF.OrderPropertyProperty" FromRole="OrderProperty" ToRole="Property" />
+          <NavigationProperty Name="MachineOrder" Relationship="EF.MachineOrderProperty" FromRole="MachineProperty" ToRole="MachineOrder" />
+        </EntityType>
+        <EntityType Name="Property">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="150" />
+          <NavigationProperty Name="OrderProperties" Relationship="EF.OrderPropertyProperty" FromRole="Property" ToRole="OrderProperty" />
+          <NavigationProperty Name="Condition" Relationship="EF.PropertyCondition" FromRole="Property" ToRole="Condition" />
+        </EntityType>
+        <Association Name="OrderPropertyProperty">
+          <End Type="EF.MachineProperty" Role="OrderProperty" Multiplicity="*" />
+          <End Type="EF.Property" Role="Property" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Rule">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Tasks" Relationship="EF.RuleTask" FromRole="Rule" ToRole="Task" />
+          <Property Name="Priority" Type="Int32" Nullable="false" />
+          <Property Name="X" Type="Int16" Nullable="false" />
+          <Property Name="Y" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Operation" Relationship="EF.OperationRule" FromRole="Rule" ToRole="Operation" />
+          <NavigationProperty Name="Owner" Relationship="EF.UserRule" FromRole="Rule" ToRole="User" />
+          <Property Name="UserID" Type="Int64" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Rules" Relationship="EF.RuleTask" FromRole="Task" ToRole="Rule" />
+          <NavigationProperty Name="MachineOrders" Relationship="EF.OrderTask" FromRole="Tasks" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Operation" Abstract="true">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Operator" Type="String" Nullable="false" MaxLength="5" />
+          <Property Name="X" Type="Int16" Nullable="false" />
+          <Property Name="Y" Type="Int16" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" cg:SetterAccess="Internal" cg:GetterAccess="Private" MaxLength="1" />
+          <NavigationProperty Name="Rule" Relationship="EF.OperationRule" FromRole="Operation" ToRole="Rule" />
+        </EntityType>
+        <Association Name="RuleTask">
+          <End Type="EF.Rule" Role="Rule" Multiplicity="*" />
+          <End Type="EF.Task" Role="Task" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Condition" BaseType="EF.Operation">
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Property" Relationship="EF.PropertyCondition" FromRole="Condition" ToRole="Property" />
+        </EntityType>
+        <EntityType Name="UnaryOperation" BaseType="EF.Operation" >
+          <NavigationProperty Name="Operation1" Relationship="EF.OpUnOp" FromRole="UnaryOperation" ToRole="Operation" />
+        </EntityType>
+        <EntityType Name="BinaryOperation" BaseType="EF.Operation" >
+          <NavigationProperty Name="Operation1" Relationship="EF.BinOp1" FromRole="BinaryOperation" ToRole="Operation" />
+          <NavigationProperty Name="Operation2" Relationship="EF.BinOp2" FromRole="BinaryOperation" ToRole="Operation" />
+        </EntityType>
+        <Association Name="PropertyCondition">
+          <End Type="EF.Property" Role="Property" Multiplicity="1" />
+          <End Type="EF.Condition" Role="Condition" Multiplicity="*" />
+        </Association>
+        <Association Name="OptOrder">
+          <End Type="EF.Opt" Role="Opt" Multiplicity="*" />
+          <End Type="EF.Order" Role="Order" Multiplicity="*" />
+        </Association>
+        <Association Name="OpUnOp">
+          <End Type="EF.UnaryOperation" Role="UnaryOperation" Multiplicity="*" />
+          <End Type="EF.Operation" Role="Operation" Multiplicity="0..1" />
+        </Association>
+        <EntityType Name="Time">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Order" Relationship="EF.OrderTime" FromRole="Time" ToRole="Order" />
+          <Property Name="StartTime" Type="DateTime" Nullable="false" />
+          <Property Name="EndTime" Type="DateTime" Nullable="false" />
+          <Property Name="Hours" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="EF.UserTime" FromRole="Time" ToRole="User" />
+        </EntityType>
+        <Association Name="OrderTime">
+          <End Type="EF.Order" Role="Order" Multiplicity="1" />
+          <End Type="EF.Time" Role="Time" Multiplicity="*" />
+        </Association>
+        <Association Name="UserTime">
+          <End Type="EF.User" Role="User" Multiplicity="1" />
+          <End Type="EF.Time" Role="Time" Multiplicity="*" />
+        </Association>
+        <EntityType Name="MachineOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Order" Relationship="EF.OrderMachineOrder" FromRole="MachineOrder" ToRole="Order" />
+          <NavigationProperty Name="Machine" Relationship="EF.MachineOrderMachine" FromRole="MachineOrder" ToRole="Machine" />
+          <NavigationProperty Name="MachineProperties" Relationship="EF.MachineOrderProperty" FromRole="MachineOrder" ToRole="MachineProperty" />
+          <NavigationProperty Name="Tasks" Relationship="EF.OrderTask" FromRole="Orders" ToRole="Tasks" />
+          <Property Name="Checked" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="OrderMachineOrder">
+          <End Type="EF.Order" Role="Order" Multiplicity="0..1" />
+          <End Type="EF.MachineOrder" Role="MachineOrder" Multiplicity="*" />
+        </Association>
+        <Association Name="MachineOrderMachine">
+          <End Type="EF.MachineOrder" Role="MachineOrder" Multiplicity="*" />
+          <End Type="EF.Machine" Role="Machine" Multiplicity="0..1" />
+        </Association>
+        <Association Name="MachineOrderProperty">
+          <End Type="EF.MachineProperty" Role="MachineProperty" Multiplicity="*" />
+          <End Type="EF.MachineOrder" Role="MachineOrder" Multiplicity="0..1" />
+        </Association>
+        <Association Name="BinOp1">
+          <End Type="EF.BinaryOperation" Role="BinaryOperation" Multiplicity="*" />
+          <End Type="EF.Operation" Role="Operation" Multiplicity="0..1" />
+        </Association>
+        <Association Name="BinOp2">
+          <End Type="EF.BinaryOperation" Role="BinaryOperation" Multiplicity="*" />
+          <End Type="EF.Operation" Role="Operation" Multiplicity="0..1" />
+        </Association>
+        <Association Name="OperationRule">
+          <End Type="EF.Operation" Role="Operation" Multiplicity="0..1" />
+          <End Type="EF.Rule" Role="Rule" Multiplicity="0..1" />
+        </Association>
+        <Association Name="UserRule">
+          <End Type="EF.User" Role="User" Multiplicity="0..1" />
+          <End Type="EF.Rule" Role="Rule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Rule">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OrderTask">
+          <End Type="EF.MachineOrder" Role="Orders" Multiplicity="*" />
+          <End Type="EF.Task" Role="Tasks" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+    <EntityContainerMapping StorageEntityContainer="EFStoreContainer" CdmEntityContainer="OracleData">
+        <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="IsTypeOf(EF.User)">
+                <MappingFragment StoreEntitySet="Users">
+                    <ScalarProperty Name="ID" ColumnName="ID" />
+                    <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                    <ScalarProperty Name="SecondName" ColumnName="SecondName" />
+                    <ScalarProperty Name="UserName" ColumnName="UserName" />
+                </MappingFragment>
+            </EntityTypeMapping>
+        </EntitySetMapping>
+        <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="IsTypeOf(EF.Customer)">
+                <MappingFragment StoreEntitySet="Customers">
+                    <ScalarProperty Name="ID" ColumnName="ID" />
+                    <ScalarProperty Name="Name" ColumnName="Name" />
+                    <ScalarProperty Name="AdditionalInfos" ColumnName="AdditionalInfos" />
+                    <ScalarProperty Name="CustomerNr" ColumnName="CustomerNr" />
+                </MappingFragment>
+            </EntityTypeMapping>
+        </EntitySetMapping>
+        <EntitySetMapping Name="Opts">
+            <EntityTypeMapping TypeName="IsTypeOf(EF.Opt)">
+                <MappingFragment StoreEntitySet="Opts">
+                    <ScalarProperty Name="ID" ColumnName="ID" />
+                    <ScalarProperty Name="Blockname" ColumnName="Blockname" />
+                    <ScalarProperty Name="SwitchCondition" ColumnName="SwitchCondition" />
+                    <ScalarProperty Name="Number" ColumnName="Number" />
+                </MappingFragment>
+            </EntityTypeMapping>
+        </EntitySetMapping>
+        <EntitySetMapping Name="Machines">
+            <EntityTypeMapping TypeName="IsTypeOf(EF.Machine)">
+                <MappingFragment StoreEntitySet="Machines">
+                    <ScalarProperty Name="ID" ColumnName="ID" />
+                    <ScalarProperty Name="FabricationNumber" ColumnName="FabricationNumber" />
+                    <ScalarProperty Name="SD" ColumnName="SD" />
+                    <ScalarProperty Name="Version" ColumnName="Version" />
+                    <ScalarProperty Name="Type" ColumnName="Type" />
+                    <ScalarProperty Name="Reference" ColumnName="Reference" />
+                    <ScalarProperty Name="Plant" ColumnName="Plant" />
+                    <ScalarProperty Name="Year" ColumnName="Year" />
+                    <ScalarProperty Name="KVZ" ColumnName="KVZ" />
+                </MappingFragment>
+            </EntityTypeMapping>
+        </EntitySetMapping>
+        <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="IsTypeOf(EF.Order)">
+                <MappingFragment StoreEntitySet="Orders">
+                    <ScalarProperty Name="ID" ColumnName="ID" />
+                    <ScalarProperty Name="Deadline" ColumnName="Deadline" />
+                    <ScalarProperty Name="Note" ColumnName="Note" />
+                    <ScalarProperty Name="Name" ColumnName="Name" />
+                    <ScalarProperty Name="Text" ColumnName="Text" />
+                    <ScalarProperty Name="Number" ColumnName="Number" />
+                    <ScalarProperty Name="Done" ColumnName="Done" />
+                </MappingFragment>
+            </EntityTypeMapping>
+        </EntitySetMapping>
+        <EntitySetMapping Name="MachineProperties">
+            <EntityTypeMapping TypeName="IsTypeOf(EF.MachineProperty)">
+                <MappingFragment StoreEntitySet="MachineProperties">
+                    <ScalarProperty Name="ID" ColumnName="ID" />
+                    <ScalarProperty Name="Value" ColumnName="Value" />
+                </MappingFragment>
+            </EntityTypeMapping>
+        </EntitySetMapping>
+        <EntitySetMapping Name="Properties">
+            <EntityTypeMapping TypeName="IsTypeOf(EF.Property)">
+                <MappingFragment StoreEntitySet="Properties">
+                    <ScalarProperty Name="ID" ColumnName="ID" />
+                    <ScalarProperty Name="Text" ColumnName="Text" />
+                </MappingFragment>
+            </EntityTypeMapping>
+        </EntitySetMapping>
+        <EntitySetMapping Name="Rules">
+            <EntityTypeMapping TypeName="IsTypeOf(EF.Rule)">
+                <MappingFragment StoreEntitySet="Rules">
+                    <ScalarProperty Name="ID" ColumnName="ID" />
+                    <ScalarProperty Name="Name" ColumnName="Name" />
+                    <ScalarProperty Name="Priority" ColumnName="Priority" />
+                    <ScalarProperty Name="X" ColumnName="X" />
+                    <ScalarProperty Name="Y" ColumnName="Y" />
+                    <ScalarProperty Name="UserID" ColumnName="UserID" />
+                </MappingFragment>
+            </EntityTypeMapping>
+        </EntitySetMapping>
+        <EntitySetMapping Name="Tasks">
+            <EntityTypeMapping TypeName="IsTypeOf(EF.Task)">
+                <MappingFragment StoreEntitySet="Tasks">
+                    <ScalarProperty Name="ID" ColumnName="ID" />
+                    <ScalarProperty Name="Text" ColumnName="Text" />
+                </MappingFragment>
+            </EntityTypeMapping>
+        </EntitySetMapping>
+        <EntitySetMapping Name="Operations">
+            <EntityTypeMapping TypeName="IsTypeOf(EF.Operation)">
+                <MappingFragment StoreEntitySet="Operations">
+                    <ScalarProperty Name="ID" ColumnName="ID" />
+                    <ScalarProperty Name="Operator" ColumnName="Operator" />
+                    <ScalarProperty Name="X" ColumnName="X" />
+                    <ScalarProperty Name="Y" ColumnName="Y" />
+                    <ScalarProperty Name="Type" ColumnName="Type" />
+                </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(EF.Condition)">
+                <MappingFragment StoreEntitySet="Operations_Condition">
+                    <ScalarProperty Name="ID" ColumnName="ID" />
+                    <ScalarProperty Name="Value" ColumnName="Value" />
+                </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(EF.UnaryOperation)">
+                <MappingFragment StoreEntitySet="Operations_UnaryOperation">
+                    <ScalarProperty Name="ID" ColumnName="ID" />
+                </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(EF.BinaryOperation)">
+                <MappingFragment StoreEntitySet="Operations_BinaryOperation">
+                    <ScalarProperty Name="ID" ColumnName="ID" />
+                </MappingFragment>
+            </EntityTypeMapping>
+        </EntitySetMapping>
+        <EntitySetMapping Name="Times">
+            <EntityTypeMapping TypeName="IsTypeOf(EF.Time)">
+                <MappingFragment StoreEntitySet="Times">
+                    <ScalarProperty Name="ID" ColumnName="ID" />
+                    <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                    <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                    <ScalarProperty Name="Hours" ColumnName="Hours" />
+                </MappingFragment>
+            </EntityTypeMapping>
+        </EntitySetMapping>
+        <EntitySetMapping Name="MachineOrder">
+            <EntityTypeMapping TypeName="IsTypeOf(EF.MachineOrder)">
+                <MappingFragment StoreEntitySet="MachineOrder">
+                    <ScalarProperty Name="ID" ColumnName="ID" />
+                    <ScalarProperty Name="Checked" ColumnName="Checked" />
+                </MappingFragment>
+            </EntityTypeMapping>
+        </EntitySetMapping>
+        <AssociationSetMapping Name="CustomerOrder" TypeName="EF.CustomerOrder" StoreEntitySet="Orders">
+            <EndProperty Name="Customer">
+                <ScalarProperty Name="ID" ColumnName="Customer_ID" />
+            </EndProperty>
+            <EndProperty Name="Order">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <Condition ColumnName="Customer_ID" IsNull="false" />
+        </AssociationSetMapping>
+        <AssociationSetMapping Name="OrderPropertyProperty" TypeName="EF.OrderPropertyProperty" StoreEntitySet="MachineProperties">
+            <EndProperty Name="Property">
+                <ScalarProperty Name="ID" ColumnName="Property_ID" />
+            </EndProperty>
+            <EndProperty Name="OrderProperty">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+        </AssociationSetMapping>
+        <AssociationSetMapping Name="RuleTask" TypeName="EF.RuleTask" StoreEntitySet="RuleTask">
+            <EndProperty Name="Rule">
+                <ScalarProperty Name="ID" ColumnName="Rules_ID" />
+            </EndProperty>
+            <EndProperty Name="Task">
+                <ScalarProperty Name="ID" ColumnName="Tasks_ID" />
+            </EndProperty>
+        </AssociationSetMapping>
+        <AssociationSetMapping Name="PropertyCondition" TypeName="EF.PropertyCondition" StoreEntitySet="Operations_Condition">
+            <EndProperty Name="Property">
+                <ScalarProperty Name="ID" ColumnName="Property_ID" />
+            </EndProperty>
+            <EndProperty Name="Condition">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+        </AssociationSetMapping>
+        <AssociationSetMapping Name="OptOrder" TypeName="EF.OptOrder" StoreEntitySet="OptOrder">
+            <EndProperty Name="Opt">
+                <ScalarProperty Name="ID" ColumnName="Opts_ID" />
+            </EndProperty>
+            <EndProperty Name="Order">
+                <ScalarProperty Name="ID" ColumnName="Order_ID" />
+            </EndProperty>
+        </AssociationSetMapping>
+        <AssociationSetMapping Name="UnaryOperationOperation" TypeName="EF.OpUnOp" StoreEntitySet="Operations_UnaryOperation">
+            <EndProperty Name="Operation">
+                <ScalarProperty Name="ID" ColumnName="Operation1_ID" />
+            </EndProperty>
+            <EndProperty Name="UnaryOperation">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <Condition ColumnName="Operation1_ID" IsNull="false" />
+        </AssociationSetMapping>
+        <AssociationSetMapping Name="OrderTime" TypeName="EF.OrderTime" StoreEntitySet="Times">
+            <EndProperty Name="Order">
+                <ScalarProperty Name="ID" ColumnName="Order_ID" />
+            </EndProperty>
+            <EndProperty Name="Time">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+        </AssociationSetMapping>
+        <AssociationSetMapping Name="UserTime" TypeName="EF.UserTime" StoreEntitySet="Times">
+            <EndProperty Name="User">
+                <ScalarProperty Name="ID" ColumnName="User_ID" />
+            </EndProperty>
+            <EndProperty Name="Time">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+        </AssociationSetMapping>
+        <AssociationSetMapping Name="OrderMachineOrder" TypeName="EF.OrderMachineOrder" StoreEntitySet="MachineOrder">
+            <EndProperty Name="Order">
+                <ScalarProperty Name="ID" ColumnName="Order_ID" />
+            </EndProperty>
+            <EndProperty Name="MachineOrder">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <Condition ColumnName="Order_ID" IsNull="false" />
+        </AssociationSetMapping>
+        <AssociationSetMapping Name="MachineOrderMachine" TypeName="EF.MachineOrderMachine" StoreEntitySet="MachineOrder">
+            <EndProperty Name="Machine">
+                <ScalarProperty Name="ID" ColumnName="Machine_ID" />
+            </EndProperty>
+            <EndProperty Name="MachineOrder">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <Condition ColumnName="Machine_ID" IsNull="false" />
+        </AssociationSetMapping>
+        <AssociationSetMapping Name="MachineOrderProperty" TypeName="EF.MachineOrderProperty" StoreEntitySet="MachineProperties">
+            <EndProperty Name="MachineOrder">
+                <ScalarProperty Name="ID" ColumnName="MachineOrder_ID" />
+            </EndProperty>
+            <EndProperty Name="MachineProperty">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <Condition ColumnName="MachineOrder_ID" IsNull="false" />
+        </AssociationSetMapping>
+        <AssociationSetMapping Name="BinaryOperationOperation2" TypeName="EF.BinOp1" StoreEntitySet="Operations_BinaryOperation">
+            <EndProperty Name="Operation">
+                <ScalarProperty Name="ID" ColumnName="Operation1_ID" />
+            </EndProperty>
+            <EndProperty Name="BinaryOperation">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <Condition ColumnName="Operation1_ID" IsNull="false" />
+        </AssociationSetMapping>
+        <AssociationSetMapping Name="BinaryOperationOperation1" TypeName="EF.BinOp2" StoreEntitySet="Operations_BinaryOperation">
+            <EndProperty Name="Operation">
+                <ScalarProperty Name="ID" ColumnName="Operation2_ID" />
+            </EndProperty>
+            <EndProperty Name="BinaryOperation">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <Condition ColumnName="Operation2_ID" IsNull="false" />
+        </AssociationSetMapping>
+        <AssociationSetMapping Name="OperationRule" TypeName="EF.OperationRule" StoreEntitySet="Rules">
+            <EndProperty Name="Operation">
+                <ScalarProperty Name="ID" ColumnName="Operation_ID" />
+            </EndProperty>
+            <EndProperty Name="Rule">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+            <Condition ColumnName="Operation_ID" IsNull="false" />
+        </AssociationSetMapping>
+        <AssociationSetMapping Name="OrderTask" TypeName="EF.OrderTask" StoreEntitySet="OrderTask">
+            <EndProperty Name="Orders">
+                <ScalarProperty Name="ID" ColumnName="MachineOrders_ID" />
+            </EndProperty>
+            <EndProperty Name="Tasks">
+                <ScalarProperty Name="ID" ColumnName="Tasks_ID" />
+            </EndProperty>
+        </AssociationSetMapping>
+    </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="DatabaseGenerationWorkflow" Value="$(VSEFTools)\DBGen\Generate Oracle Via T4 (TPT).xaml" />
+        <DesignerProperty Name="DefaultDatabaseSchema" Value="OPTVIEWER" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+        <DesignerProperty Name="DDLGenerationTemplate" Value="$(VSEFTools)\DBGen\SSDLToOracle.tt" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="SynchronizePropertyFacets" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="660c1f13e9a2428db8140ab2197585f6" Name="Diagram1" ZoomLevel="86" >
+        <EntityTypeShape EntityType="EF.User" Width="1.5" PointX="11" PointY="5.25" />
+        <EntityTypeShape EntityType="EF.Customer" Width="1.5" PointX="3.125" PointY="6.625" />
+        <EntityTypeShape EntityType="EF.Opt" Width="1.5" PointX="3.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EF.Machine" Width="1.5" PointX="3" PointY="9.125" />
+        <EntityTypeShape EntityType="EF.Order" Width="1.5" PointX="5.625" PointY="4.625" />
+        <AssociationConnector Association="EF.CustomerOrder" />
+        <EntityTypeShape EntityType="EF.MachineProperty" Width="1.5" PointX="5.625" PointY="11.125" />
+        <EntityTypeShape EntityType="EF.Property" Width="1.5" PointX="5.625" PointY="13.875" />
+        <AssociationConnector Association="EF.OrderPropertyProperty" />
+        <EntityTypeShape EntityType="EF.Rule" Width="1.5" PointX="7.875" PointY="11" />
+        <EntityTypeShape EntityType="EF.Task" Width="1.5" PointX="8" PointY="8.25" />
+        <EntityTypeShape EntityType="EF.Operation" Width="3.375" PointX="10.25" PointY="13.875" />
+        <AssociationConnector Association="EF.RuleTask" />
+        <EntityTypeShape EntityType="EF.Condition" Width="1.5" PointX="7.875" PointY="14" />
+        <EntityTypeShape EntityType="EF.UnaryOperation" Width="1.5" PointX="10" PointY="16.875" />
+        <EntityTypeShape EntityType="EF.BinaryOperation" Width="3" PointX="11.875" PointY="16.875" />
+        <AssociationConnector Association="EF.PropertyCondition" />
+        <InheritanceConnector EntityType="EF.Condition" />
+        <InheritanceConnector EntityType="EF.UnaryOperation"></InheritanceConnector>
+        <InheritanceConnector EntityType="EF.BinaryOperation" ManuallyRouted="false" >
+        </InheritanceConnector>
+        <InheritanceConnector EntityType="EF.BinaryOperation" />
+        <InheritanceConnector EntityType="EF.Condition" />
+        <InheritanceConnector EntityType="EF.UnaryOperation" />
+        <InheritanceConnector EntityType="EF.UnaryOperation" />
+        <InheritanceConnector EntityType="EF.BinaryOperation" />
+        <InheritanceConnector EntityType="EF.Condition" />
+        <AssociationConnector Association="EF.OptOrder" />
+        <AssociationConnector Association="EF.OpUnOp" ></AssociationConnector>
+        <EntityTypeShape EntityType="EF.Time" Width="1.5" PointX="8" PointY="5" />
+        <AssociationConnector Association="EF.OrderTime" />
+        <AssociationConnector Association="EF.UserTime" />
+        <EntityTypeShape EntityType="EF.MachineOrder" Width="1.5" PointX="5.625" PointY="8.25" />
+        <AssociationConnector Association="EF.OrderMachineOrder" />
+        <AssociationConnector Association="EF.MachineOrderMachine" />
+        <AssociationConnector Association="EF.MachineOrderProperty" />
+        <AssociationConnector Association="EF.BinOp1" />
+        <AssociationConnector Association="EF.BinOp2" />
+        <AssociationConnector Association="EF.OperationRule" />
+        <AssociationConnector Association="EF.UserRule" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="EF.OrderTask" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
