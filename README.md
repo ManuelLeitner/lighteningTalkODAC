@@ -20,6 +20,8 @@ Toolkit für die Verwendung von Oracle DB in einer .NET-Umgebung
 - einfache Verwendung
 - einfache Installation
 - DB-Versionsunabhängig
+- einfaches Deployment
+- Anbindung an EF
 
 ### Nachteile/Probleme
 - keine/veraltete Dokumentation
@@ -30,5 +32,7 @@ Toolkit für die Verwendung von Oracle DB in einer .NET-Umgebung
 ## Managed vs. Unmanaged
 - `Managed:`
   * einfacher in der Verwendung
+  * einfaches Deployment
 - Unmanaged
   * meistens schneller
+  * schwerer zu deployn
