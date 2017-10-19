@@ -11,8 +11,16 @@ Toolkit für die Verwendung von Oracle DB in einer .NET-Umgebung
 - Oracle Objects for OLE*
 - Oracle Services for Microsoft Transaction Server
 
-
 \*kompatibel bis Oracle 9i
+
+## Managed vs. Unmanaged
+- `Managed:`
+  * einfacher in der Verwendung
+  * einfaches Deployment
+  * 100% C#
+- Unmanaged
+  * meistens schneller
+  * schwerer zu deployn
 
 ## Vor- und Nachteile aus der Verwendung in der Praxis
 
@@ -28,12 +36,3 @@ Toolkit für die Verwendung von Oracle DB in einer .NET-Umgebung
 - schwer zu erlernen
 - ID-Generierung
 - Deadlocks
-
-## Managed vs. Unmanaged
-- `Managed:`
-  * einfacher in der Verwendung
-  * einfaches Deployment
-  * 100% C#
-- Unmanaged
-  * meistens schneller
-  * schwerer zu deployn
