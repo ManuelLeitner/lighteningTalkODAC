@@ -7,10 +7,9 @@ namespace TestExample {
         static void Main(string[] args) {
             OracleData data = new OracleData();
 
-
             var todos = data.Orders.Where((o) => !o.Done);
 
-            Console.WriteLine($"insgesamt {todos.Count()} Aufträge");
+            Console.WriteLine($"insgesamt {todos.Count()} offene Aufträge");
             Console.WriteLine($"mit {todos.Sum((o) => o.MachineOrders.Count)} Maschinen");
 
             Order actualOrder = todos.First();
