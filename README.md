@@ -7,6 +7,12 @@ Toolkit für die Verwendung von Oracle DB in einer .NET-Umgebung
 - _**`ODT:`**_` Oracle Developer Tools for Visual Studio`
 - Oracle Providers for ASP.NET
 - .NET stored procedure
+- Oracle Provider for OLE DB*
+- Oracle Objects for OLE*
+- Oracle Services for Microsoft Transaction Server
+
+
+\*kompatibel bis Oracle 9i
 
 ## Vorteile
 - einfache Verwendung
@@ -18,7 +24,7 @@ Toolkit für die Verwendung von Oracle DB in einer .NET-Umgebung
 - schwer zu erlernen
 
 ## Managed vs. Unmanaged
-- Managed:
+- `Managed:`
   * einfacher in der Verwendung
 - Unmanaged
   * meistens schneller
