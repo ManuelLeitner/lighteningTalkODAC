@@ -7,14 +7,32 @@ Toolkit für die Verwendung von Oracle DB in einer .NET-Umgebung
 - _**`ODT:`**_` Oracle Developer Tools for Visual Studio`
 - Oracle Providers for ASP.NET
 - .NET stored procedure
+- Oracle Provider for OLE DB*
+- Oracle Objects for OLE*
+- Oracle Services for Microsoft Transaction Server
 
-## Vorteile
+
+\*kompatibel bis Oracle 9i
+
+## Vor- und Nachteile aus der Verwendung in der Praxis
+
+### Vorteile
 - einfache Verwendung
 - einfache Installation
 - DB-Versionsunabhängig
+- einfaches Deployment
+- Anbindung an EF
 
-## Nachteile
+### Nachteile/Probleme
 - keine/veraltete Dokumentation
 - schwer zu erlernen
+- ID-Generierung
+- Deadlocks
 
 ## Managed vs. Unmanaged
+- `Managed:`
+  * einfacher in der Verwendung
+  * einfaches Deployment
+- Unmanaged
+  * meistens schneller
+  * schwerer zu deployn
