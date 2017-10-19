@@ -33,6 +33,7 @@ Toolkit für die Verwendung von Oracle DB in einer .NET-Umgebung
 - `Managed:`
   * einfacher in der Verwendung
   * einfaches Deployment
+  * 100% C#
 - Unmanaged
   * meistens schneller
   * schwerer zu deployn
